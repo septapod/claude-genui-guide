@@ -1,8 +1,8 @@
 # Generative UI Guide - Project Status
 
 > **Last Updated**: 2025-12-03
-> **Status**: Near Complete - Awaiting GitHub Push & Vercel Deploy
-> **Current Phase**: Phase 5 - Deployment
+> **Status**: Complete - Deployed to GitHub
+> **Current Phase**: Phase 5 - Deployment (GitHub Complete)
 
 ---
 
@@ -78,7 +78,7 @@ claude-genui-guide/
    - `/mcp-setup` - Installation guide
    - `/troubleshooting` - Common issues
 
-3. **GitHub**: `septapod/claude-genui-guide` - PENDING
+3. **GitHub**: https://github.com/septapod/claude-genui-guide - COMPLETE
 
 ---
 
@@ -111,10 +111,10 @@ claude-genui-guide/
 - [x] Create example descriptions
 - [x] Add proper citations
 
-### Phase 5: Deployment - IN PROGRESS
-- [ ] Create GitHub repo
-- [ ] Push to GitHub
-- [ ] Connect to Vercel
+### Phase 5: Deployment - COMPLETE
+- [x] Create GitHub repo: https://github.com/septapod/claude-genui-guide
+- [x] Push to GitHub
+- [ ] Connect to Vercel (user will do manually)
 - [ ] Test deployment
 
 ---
@@ -160,11 +160,11 @@ GEMINI_API_KEY=your_gemini_api_key_here
 
 ## Next Steps
 
-1. **Create GitHub repo**: `gh repo create septapod/claude-genui-guide --public`
-2. **Push code**: `git add . && git commit && git push`
-3. **Connect Vercel**: Link the repo in Vercel dashboard
+1. ~~**Create GitHub repo**~~: DONE - https://github.com/septapod/claude-genui-guide
+2. ~~**Push code**~~: DONE
+3. **Connect Vercel**: Link the repo in Vercel dashboard (user action)
 4. **Test MCP server**: Install in Claude Code and test image generation
-5. **Install MCP dependencies**: `cd mcp-server && npm install`
+5. **Install MCP dependencies**: `cd mcp-server && npm install && npm run build`
 
 ---
 
