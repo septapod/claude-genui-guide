@@ -69,7 +69,8 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 
   try {
     const args = request.params.arguments as Record<string, unknown>;
-    return await tool.execute(args as Parameters<typeof tool.execute>[0]);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    return await tool.execute(args as any);
   } catch (error) {
     return {
       content: [

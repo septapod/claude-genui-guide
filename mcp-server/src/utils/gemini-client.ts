@@ -66,7 +66,19 @@ export async function generateImage(options: GenerateImageOptions): Promise<Gene
       };
     }
 
-    const data = await response.json();
+    const data = await response.json() as {
+      candidates?: Array<{
+        content?: {
+          parts?: Array<{
+            text?: string;
+            inlineData?: {
+              mimeType?: string;
+              data?: string;
+            };
+          }>;
+        };
+      }>;
+    };
 
     // Extract image from response
     const candidates = data.candidates;
@@ -98,7 +110,7 @@ export async function generateImage(options: GenerateImageOptions): Promise<Gene
     }
 
     // If no image, return text response info
-    const textPart = parts.find((p: { text?: string }) => p.text);
+    const textPart = parts.find((p) => p.text);
     return {
       success: false,
       error: textPart?.text || "No image generated"

@@ -58,77 +58,205 @@ export default function Home() {
         </div>
       </div>
 
-      {/* What is Generative UI */}
+      {/* The Problem / The Vision */}
       <section className="py-12 border-t border-zinc-200 dark:border-zinc-800">
         <h2 className="text-2xl sm:text-3xl font-bold mb-6">
           What is Generative UI?
         </h2>
-        <div className="prose prose-zinc dark:prose-invert max-w-none">
-          <p className="text-lg text-zinc-600 dark:text-zinc-400">
-            <strong>Generative UI</strong> is a paradigm where AI models
-            generate not just content, but the entire user interface. Instead of
-            outputting markdown &ldquo;walls of text,&rdquo; the model creates
-            custom interactive experiences including:
+
+        <div className="mb-8">
+          <p className="text-lg text-zinc-600 dark:text-zinc-400 mb-6">
+            When you ask an AI agent a question today, you typically get <strong>markdown</strong> &mdash;
+            headers, bullet points, code blocks. Google Research calls this &ldquo;walls of text.&rdquo;
           </p>
-          <ul className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2 text-zinc-600 dark:text-zinc-400">
-            <li className="flex items-center gap-2">
-              <span className="text-green-500">&#10003;</span> Rich formatting
-              and layouts
-            </li>
-            <li className="flex items-center gap-2">
-              <span className="text-green-500">&#10003;</span> Interactive
-              widgets and controls
-            </li>
-            <li className="flex items-center gap-2">
-              <span className="text-green-500">&#10003;</span> Dynamic images
-              and visualizations
-            </li>
-            <li className="flex items-center gap-2">
-              <span className="text-green-500">&#10003;</span> Maps and
-              geospatial data
-            </li>
-            <li className="flex items-center gap-2">
-              <span className="text-green-500">&#10003;</span> Games and
-              simulations
-            </li>
-            <li className="flex items-center gap-2">
-              <span className="text-green-500">&#10003;</span> Audio and
-              multimedia
-            </li>
-          </ul>
+          <p className="text-lg text-zinc-600 dark:text-zinc-400">
+            <strong>Generative UI</strong> is different. Instead of text, the AI generates a
+            <strong> complete interactive web application</strong> tailored to your question.
+          </p>
+        </div>
+
+        {/* Comparison Table */}
+        <div className="overflow-x-auto">
+          <table className="w-full text-left border-collapse">
+            <thead>
+              <tr className="border-b border-zinc-200 dark:border-zinc-700">
+                <th className="py-3 px-4 font-semibold text-zinc-900 dark:text-zinc-100">You Ask</th>
+                <th className="py-3 px-4 font-semibold text-zinc-500">Traditional Output</th>
+                <th className="py-3 px-4 font-semibold text-blue-600 dark:text-blue-400">Generative UI Output</th>
+              </tr>
+            </thead>
+            <tbody className="text-sm">
+              <tr className="border-b border-zinc-100 dark:border-zinc-800">
+                <td className="py-4 px-4 font-medium">&ldquo;What time is it?&rdquo;</td>
+                <td className="py-4 px-4 text-zinc-500">&ldquo;The current time is 3:45 PM EST&rdquo;</td>
+                <td className="py-4 px-4 text-zinc-600 dark:text-zinc-400">A live animated clock with world time zones, analog/digital toggle, dark mode</td>
+              </tr>
+              <tr className="border-b border-zinc-100 dark:border-zinc-800">
+                <td className="py-4 px-4 font-medium">&ldquo;Tell me about Marie Curie&rdquo;</td>
+                <td className="py-4 px-4 text-zinc-500">Paragraphs of text with headers</td>
+                <td className="py-4 px-4 text-zinc-600 dark:text-zinc-400">Interactive biography with timeline, family tree visualization, achievement gallery</td>
+              </tr>
+              <tr className="border-b border-zinc-100 dark:border-zinc-800">
+                <td className="py-4 px-4 font-medium">&ldquo;Plan my Singapore trip&rdquo;</td>
+                <td className="py-4 px-4 text-zinc-500">Bullet points of recommendations</td>
+                <td className="py-4 px-4 text-zinc-600 dark:text-zinc-400">Interactive map app with day-by-day tabs, generated landmark images, weather widget</td>
+              </tr>
+              <tr>
+                <td className="py-4 px-4 font-medium">&ldquo;Explain fractals&rdquo;</td>
+                <td className="py-4 px-4 text-zinc-500">Text explanation with maybe a linked image</td>
+                <td className="py-4 px-4 text-zinc-600 dark:text-zinc-400">Interactive Mandelbrot explorer with zoom controls, parameter sliders, educational timeline</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </section>
 
-      {/* Architecture */}
+      {/* How It All Connects */}
       <section className="py-12 border-t border-zinc-200 dark:border-zinc-800">
         <h2 className="text-2xl sm:text-3xl font-bold mb-6">
-          How It Works (3 Components)
+          How It Works
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="p-6 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/50">
-            <div className="text-3xl mb-4">1</div>
-            <h3 className="text-xl font-semibold mb-2">Tools (MCP Server)</h3>
-            <p className="text-zinc-600 dark:text-zinc-400">
-              Server endpoints providing image generation and web search
-              capabilities that Claude can invoke during generation.
+
+        <p className="text-lg text-zinc-600 dark:text-zinc-400 mb-8">
+          Three components work together to enable Generative UI. Whether you&apos;re a developer
+          setting this up or someone using an AI agent like Claude Code, here&apos;s what happens:
+        </p>
+
+        {/* Flow Diagram */}
+        <div className="space-y-4 mb-12">
+          {/* Step 1: User Prompt */}
+          <div className="p-6 rounded-xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800">
+            <div className="flex items-center gap-3 mb-2">
+              <span className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-sm">1</span>
+              <h3 className="text-lg font-semibold">Your Request</h3>
+            </div>
+            <p className="text-zinc-600 dark:text-zinc-400 ml-11">
+              You ask Claude something: <span className="font-mono bg-zinc-200 dark:bg-zinc-800 px-2 py-1 rounded text-sm">&ldquo;Create a memory matching game with funny faces&rdquo;</span>
             </p>
           </div>
-          <div className="p-6 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/50">
-            <div className="text-3xl mb-4">2</div>
-            <h3 className="text-xl font-semibold mb-2">System Instructions</h3>
-            <p className="text-zinc-600 dark:text-zinc-400">
-              ~3K words of carefully crafted prompts covering philosophy,
-              examples, planning guidelines, and technical specifications.
+
+          {/* Arrow */}
+          <div className="flex justify-center">
+            <svg className="w-6 h-6 text-zinc-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+          </div>
+
+          {/* Step 2: System Prompt */}
+          <div className="p-6 rounded-xl bg-purple-50 dark:bg-purple-950/30 border border-purple-200 dark:border-purple-900">
+            <div className="flex items-center gap-3 mb-2">
+              <span className="flex-shrink-0 w-8 h-8 rounded-full bg-purple-600 text-white flex items-center justify-center font-bold text-sm">2</span>
+              <h3 className="text-lg font-semibold">System Prompt (The &ldquo;Philosophy&rdquo;)</h3>
+            </div>
+            <p className="text-zinc-600 dark:text-zinc-400 ml-11 mb-3">
+              Special instructions teach Claude to think differently:
+            </p>
+            <ul className="ml-11 space-y-1 text-sm text-zinc-600 dark:text-zinc-400">
+              <li className="flex items-start gap-2">
+                <span className="text-purple-500 mt-0.5">&#8226;</span>
+                <span>&ldquo;What interactive experience would serve this request best?&rdquo;</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-purple-500 mt-0.5">&#8226;</span>
+                <span>&ldquo;Never output markdown walls of text&rdquo;</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-purple-500 mt-0.5">&#8226;</span>
+                <span>&ldquo;Generate complete, working HTML with real content&rdquo;</span>
+              </li>
+            </ul>
+            <p className="ml-11 mt-3 text-sm">
+              <Link href="/system-prompt" className="text-purple-600 dark:text-purple-400 hover:underline">
+                Get the system prompt &rarr;
+              </Link>
             </p>
           </div>
-          <div className="p-6 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/50">
-            <div className="text-3xl mb-4">3</div>
-            <h3 className="text-xl font-semibold mb-2">Post-Processors</h3>
-            <p className="text-zinc-600 dark:text-zinc-400">
-              Lightweight fixes for common JS/CSS/HTML errors that even the best
-              models occasionally produce.
+
+          {/* Arrow */}
+          <div className="flex justify-center">
+            <svg className="w-6 h-6 text-zinc-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+          </div>
+
+          {/* Step 3: MCP Tools */}
+          <div className="p-6 rounded-xl bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-900">
+            <div className="flex items-center gap-3 mb-2">
+              <span className="flex-shrink-0 w-8 h-8 rounded-full bg-green-600 text-white flex items-center justify-center font-bold text-sm">3</span>
+              <h3 className="text-lg font-semibold">MCP Server (The &ldquo;Tools&rdquo;)</h3>
+            </div>
+            <p className="text-zinc-600 dark:text-zinc-400 ml-11 mb-3">
+              While building your experience, Claude uses special tools:
+            </p>
+            <div className="ml-11 grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="p-3 bg-white dark:bg-zinc-900 rounded-lg border border-green-100 dark:border-green-900">
+                <div className="font-mono text-sm text-green-600 dark:text-green-400">generate_image</div>
+                <div className="text-xs text-zinc-500 mt-1">Creates custom images via Gemini AI for your game&apos;s funny face cards</div>
+              </div>
+              <div className="p-3 bg-white dark:bg-zinc-900 rounded-lg border border-green-100 dark:border-green-900">
+                <div className="font-mono text-sm text-green-600 dark:text-green-400">serve_html</div>
+                <div className="text-xs text-zinc-500 mt-1">Opens a preview in your browser so you can see and interact with the result</div>
+              </div>
+            </div>
+            <p className="ml-11 mt-3 text-sm">
+              <Link href="/mcp-setup" className="text-green-600 dark:text-green-400 hover:underline">
+                Setup the MCP server &rarr;
+              </Link>
             </p>
           </div>
+
+          {/* Arrow */}
+          <div className="flex justify-center">
+            <svg className="w-6 h-6 text-zinc-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+          </div>
+
+          {/* Step 4: Output */}
+          <div className="p-6 rounded-xl bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 dark:from-blue-950/30 dark:via-purple-950/30 dark:to-pink-950/30 border border-blue-200 dark:border-blue-900">
+            <div className="flex items-center gap-3 mb-2">
+              <span className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white flex items-center justify-center font-bold text-sm">4</span>
+              <h3 className="text-lg font-semibold">The Result: A Complete Interactive Experience</h3>
+            </div>
+            <p className="text-zinc-600 dark:text-zinc-400 ml-11 mb-3">
+              Instead of text describing a game, you get an actual playable memory game:
+            </p>
+            <ul className="ml-11 space-y-1 text-sm text-zinc-600 dark:text-zinc-400">
+              <li className="flex items-center gap-2">
+                <span className="text-green-500">&#10003;</span>
+                CSS 3D card flip animations
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-green-500">&#10003;</span>
+                AI-generated character images on each card
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-green-500">&#10003;</span>
+                Move counter and timer
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-green-500">&#10003;</span>
+                Victory celebration effects
+              </li>
+            </ul>
+            <p className="ml-11 mt-3 text-sm">
+              <Link href="/examples" className="text-blue-600 dark:text-blue-400 hover:underline">
+                See more examples &rarr;
+              </Link>
+            </p>
+          </div>
+        </div>
+
+        {/* Key Insight Box */}
+        <div className="p-6 rounded-xl bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-900">
+          <h3 className="font-semibold text-amber-800 dark:text-amber-200 mb-2">
+            The Key Insight
+          </h3>
+          <p className="text-amber-700 dark:text-amber-300">
+            The <strong>MCP server provides tools</strong>, but Claude also needs the <strong>system prompt</strong> to
+            know it should generate interactive HTML instead of markdown. Both pieces work together &mdash;
+            the tools give Claude the <em>ability</em>, the prompt gives it the <em>intent</em>.
+          </p>
         </div>
       </section>
 
@@ -161,8 +289,7 @@ export default function Home() {
             <div>
               <h3 className="font-semibold">Copy the System Prompt</h3>
               <p className="text-zinc-600 dark:text-zinc-400">
-                Add our reference prompt to your Claude configuration or
-                project.
+                Add our reference prompt to your Claude configuration or paste it at the start of a conversation.
               </p>
               <Link
                 href="/system-prompt"
@@ -179,8 +306,7 @@ export default function Home() {
             <div>
               <h3 className="font-semibold">Start Generating</h3>
               <p className="text-zinc-600 dark:text-zinc-400">
-                Ask Claude to create interactive experiences instead of static
-                text.
+                Ask Claude to create interactive experiences. The output will be complete HTML you can open in any browser.
               </p>
               <Link
                 href="/examples"
