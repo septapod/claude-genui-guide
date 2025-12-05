@@ -4,9 +4,22 @@ export default function McpSetupPage() {
       <h1 className="text-3xl sm:text-4xl font-bold mb-8">MCP Server Setup</h1>
 
       <p className="text-lg text-zinc-600 dark:text-zinc-400 mb-8">
-        The Generative UI MCP server provides Claude with image generation and
-        HTML preview capabilities. Follow these steps to set it up.
+        The Generative UI MCP server provides Claude with image generation, HTML
+        preview, and validation capabilities. The system prompt is{" "}
+        <strong>automatically embedded</strong> - just install and go!
       </p>
+
+      {/* New Feature Highlight */}
+      <div className="mb-8 p-6 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-950/30 dark:to-purple-950/30 rounded-xl border border-blue-200 dark:border-blue-800">
+        <h3 className="font-bold text-blue-900 dark:text-blue-100 mb-2">
+          Version 1.1.0 - Zero Configuration
+        </h3>
+        <p className="text-blue-800 dark:text-blue-200 text-sm">
+          The complete Generative UI system prompt is now embedded in the MCP
+          server. No need to manually copy prompts - Claude automatically gets
+          the Generative UI methodology when the server is connected.
+        </p>
+      </div>
 
       {/* Prerequisites */}
       <section className="mb-12">
@@ -182,6 +195,40 @@ cd claude-genui-guide/mcp-server`}
                 <span className="text-sm text-zinc-600 dark:text-zinc-400 ml-2">
                   localhost URL to open in browser
                 </span>
+              </div>
+            </div>
+          </div>
+
+          <div className="p-6 bg-zinc-50 dark:bg-zinc-900 rounded-xl border border-zinc-200 dark:border-zinc-800">
+            <h3 className="text-xl font-semibold mb-2 text-purple-600 dark:text-purple-400">
+              validate_html
+            </h3>
+            <p className="text-zinc-600 dark:text-zinc-400 mb-4">
+              Validate and fix common issues in generated HTML. Implements all 9
+              post-processors from Google Research.
+            </p>
+            <div className="space-y-2">
+              <div>
+                <span className="text-sm font-medium">Parameters:</span>
+                <ul className="text-sm text-zinc-600 dark:text-zinc-400 ml-4">
+                  <li>
+                    • <code>html_content</code> (required): HTML to validate
+                  </li>
+                  <li>
+                    • <code>fix_errors</code> (optional): Auto-fix issues (default:
+                    true)
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <span className="text-sm font-medium">Fixes:</span>
+                <ul className="text-sm text-zinc-600 dark:text-zinc-400 ml-4">
+                  <li>• Missing Tailwind CDN</li>
+                  <li>• JS parsing issues</li>
+                  <li>• Hallucinated asset URLs</li>
+                  <li>• API key placeholders</li>
+                  <li>• And 5 more post-processors</li>
+                </ul>
               </div>
             </div>
           </div>

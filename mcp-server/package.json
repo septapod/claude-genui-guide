@@ -1,7 +1,7 @@
 {
   "name": "generative-ui-mcp-server",
-  "version": "1.0.0",
-  "description": "MCP server providing image generation and HTML preview tools for Generative UI",
+  "version": "1.1.0",
+  "description": "MCP server for Generative UI - includes embedded system prompt, image generation, HTML preview, and validation tools",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "bin": {

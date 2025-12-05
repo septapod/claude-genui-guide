@@ -1,8 +1,8 @@
 # Generative UI Guide - Project Status
 
 > **Last Updated**: 2025-12-05
-> **Status**: COMPLETE - Live on Vercel
-> **Current Phase**: Done!
+> **Status**: ENHANCED - Version 1.1.0
+> **Current Phase**: Phase 6 Complete - Documentation Updated
 
 ---
 
@@ -117,6 +117,18 @@ claude-genui-guide/
 - [x] Connect to Vercel
 - [x] MCP server built and configured in Claude Code settings
 
+### Phase 6: MCP Enhancements - COMPLETE
+- [x] Create embedded system prompt (~3K words from Google Research)
+- [x] Add MCP prompts capability to server
+- [x] Implement validate_html tool with all 9 post-processors
+- [x] Fix image generation aspect ratio support (10 ratios)
+- [x] Update tool descriptions for better guidance
+- [x] Update mcp-setup page with new features
+- [x] Update troubleshooting page with post-processor details
+- [x] Update technical-spec page with MCP architecture
+- [x] Update README.md with Version 1.1.0 features
+- [x] Rebuild MCP server (npm run build)
+
 ---
 
 ## Key Technical Details
@@ -160,11 +172,17 @@ GEMINI_API_KEY=your_gemini_api_key_here
 
 ## Next Steps
 
-All core tasks complete! Optional future enhancements:
+Version 1.1.0 complete! Remaining optional tasks:
 
-1. **Test Generative UI**: Restart Claude Code and try creating an interactive experience
-2. **Add real examples**: Generate actual HTML outputs to showcase on the examples page
-3. **Refine system prompt**: Iterate based on real-world usage
+1. **Generate working examples**: Create 8 Google Research examples + 7 unique examples for the examples gallery
+2. **Test the workflow**: Restart Claude Code and try creating interactive experiences with the enhanced MCP server
+3. **Iterate on system prompt**: Refine based on real-world usage
+
+### Version 1.1.0 Key Features
+- **Zero Configuration**: System prompt embedded in MCP server (no manual copying)
+- **Post-Processing**: All 9 Google Research post-processors in `validate_html` tool
+- **Full Aspect Ratio Support**: 10 aspect ratios for image generation
+- **Enhanced Documentation**: Updated all docs to reflect new capabilities
 
 ---
 

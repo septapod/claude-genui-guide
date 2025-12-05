@@ -18,12 +18,22 @@ export const serveHtmlTool = {
   name: "serve_html",
   description: `Save HTML content to a file and serve it locally for preview in a browser.
 
-This tool:
-1. Saves the HTML to a temp file
-2. Starts a local HTTP server (if not already running)
-3. Returns a localhost URL you can open in a browser
+**Generative UI Workflow:**
+1. Generate images with \`generate_image\` tool if needed
+2. Create complete HTML with embedded images and Tailwind CSS
+3. (Optional) Validate HTML with \`validate_html\` tool
+4. Preview with this \`serve_html\` tool
 
-Useful for previewing generated Generative UI output before saving or sharing.`,
+**This tool:**
+- Saves the HTML to a temp file
+- Starts a local HTTP server (if not already running)
+- Returns a localhost URL you can open in a browser
+
+**Tips:**
+- Always pass complete HTML (starting with <!DOCTYPE html>)
+- Include the Tailwind CDN in <head> for styling
+- Embed images as base64 data URLs for portability
+- The preview persists until you generate a new one`,
 
   inputSchema: {
     type: "object" as const,

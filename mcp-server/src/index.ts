@@ -8,6 +8,10 @@
  * Tools:
  * - generate_image: Generate images using Gemini Imagen 3
  * - serve_html: Preview generated HTML locally
+ * - validate_html: Validate and fix common HTML issues
+ *
+ * Prompts:
+ * - generative-ui: Complete system prompt for Generative UI methodology
  *
  * Based on research from:
  * "Generative UI: LLMs are Effective UI Generators" (Leviathan et al., 2024)
@@ -19,25 +23,30 @@ import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import {
   CallToolRequestSchema,
   ListToolsRequestSchema,
+  ListPromptsRequestSchema,
+  GetPromptRequestSchema,
 } from "@modelcontextprotocol/sdk/types.js";
 import { generateImageTool } from "./tools/generate-image.js";
 import { serveHtmlTool } from "./tools/serve-html.js";
+import { validateHtmlTool } from "./tools/validate-html.js";
+import { GENERATIVE_UI_SYSTEM_PROMPT } from "./prompts/generative-ui-prompt.js";
 
 // Create server instance
 const server = new Server(
   {
     name: "generative-ui-mcp-server",
-    version: "1.0.0",
+    version: "1.1.0",
   },
   {
     capabilities: {
       tools: {},
+      prompts: {},
     },
   }
 );
 
 // Register tools
-const tools = [generateImageTool, serveHtmlTool];
+const tools = [generateImageTool, serveHtmlTool, validateHtmlTool];
 
 // Handle list tools request
 server.setRequestHandler(ListToolsRequestSchema, async () => {
@@ -82,6 +91,44 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
       isError: true,
     };
   }
+});
+
+// Define available prompts
+const prompts = [
+  {
+    name: "generative-ui",
+    description:
+      "Complete system prompt for Generative UI methodology. This prompt teaches Claude to generate rich, interactive HTML experiences instead of static markdown. Based on Google Research's methodology.",
+    arguments: [],
+  },
+];
+
+// Handle list prompts request
+server.setRequestHandler(ListPromptsRequestSchema, async () => {
+  return { prompts };
+});
+
+// Handle get prompt request
+server.setRequestHandler(GetPromptRequestSchema, async (request) => {
+  const promptName = request.params.name;
+
+  if (promptName === "generative-ui") {
+    return {
+      description:
+        "Complete Generative UI system prompt based on Google Research methodology",
+      messages: [
+        {
+          role: "user" as const,
+          content: {
+            type: "text" as const,
+            text: GENERATIVE_UI_SYSTEM_PROMPT,
+          },
+        },
+      ],
+    };
+  }
+
+  throw new Error(`Unknown prompt: ${promptName}`);
 });
 
 // Start server

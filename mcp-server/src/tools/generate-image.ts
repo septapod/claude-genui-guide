@@ -13,23 +13,31 @@ import { generateImage, type GenerateImageOptions } from "../utils/gemini-client
 
 export const generateImageTool = {
   name: "generate_image",
-  description: `Generate an image using Gemini Imagen 3 for embedding in HTML.
+  description: `Generate an image using Gemini Imagen 3 for embedding in Generative UI HTML.
 
-Use this tool for:
+**When to use this tool:**
 - Generic concepts and creative illustrations (e.g., "a happy dog", "futuristic city")
 - Famous, globally recognized landmarks (e.g., "Eiffel Tower", "Statue of Liberty")
-- Abstract images and backgrounds
-- Characters and scenes for stories (include full character descriptions every time for consistency)
+- Abstract images, backgrounds, and decorative elements
+- Characters and scenes for stories (include full character descriptions every time)
+- Icons and UI elements (simple graphics work best)
 
-Do NOT use for:
-- Specific named people (use web search for photos instead)
-- Non-famous specific places (use web search instead)
-- Complex schematics or graphs with lots of text
+**When to use WebSearch instead:**
+- Specific named people (search for photos of "Albert Einstein")
+- Non-famous specific places (search for "Intercontinental Singapore hotel")
+- When real photographs are required
+- Current events or recent images
 
-Tips from Google Research:
+**How to use the returned data URL:**
+The tool returns a base64 data URL. Embed it directly in your HTML:
+\`<img src="data:image/png;base64,..." alt="description" class="w-full h-auto" />\`
+
+**Tips from Google Research:**
 - Be specific about style, colors, background, and visual elements
 - For stories/comics: create repeating character descriptions and include them in EVERY prompt
-- The image generator doesn't know context, so describe everything needed in the prompt`,
+- The image generator doesn't know context, so describe everything needed
+- Don't request complex schematics, graphs, or lengthy text - the model struggles with these
+- All images are opaque (no transparent backgrounds)`,
 
   inputSchema: {
     type: "object" as const,
