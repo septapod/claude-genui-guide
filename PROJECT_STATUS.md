@@ -47,15 +47,18 @@ claude-genui-guide/
 │   │   └── troubleshooting/   # Common issues
 │   └── components/
 │       └── Navigation.tsx     # Site navigation
-├── mcp-server/               # MCP server implementation
+├── mcp-server/               # MCP server implementation (v1.1.0)
 │   ├── package.json
 │   ├── tsconfig.json
 │   ├── README.md
 │   └── src/
-│       ├── index.ts          # Server entry
+│       ├── index.ts          # Server entry (with MCP prompts capability)
+│       ├── prompts/
+│       │   └── generative-ui-prompt.ts  # Embedded system prompt (~3K words)
 │       ├── tools/
-│       │   ├── generate-image.ts
-│       │   └── serve-html.ts
+│       │   ├── generate-image.ts  # Gemini Imagen 3 (10 aspect ratios)
+│       │   ├── serve-html.ts      # Local preview server
+│       │   └── validate-html.ts   # 9 Google post-processors
 │       └── utils/
 │           └── gemini-client.ts
 └── public/                   # Static assets
@@ -65,9 +68,11 @@ claude-genui-guide/
 
 ## Deliverables
 
-1. **MCP Server** (`mcp-server/`) - COMPLETE
-   - `generate_image` - Gemini Imagen 3
-   - `serve_html` - Local HTML preview
+1. **MCP Server v1.1.0** (`mcp-server/`) - COMPLETE
+   - `generate_image` - Gemini Imagen 3 with 10 aspect ratios
+   - `serve_html` - Local HTML preview server
+   - `validate_html` - All 9 Google Research post-processors
+   - Embedded system prompt via MCP prompts capability (zero config)
 
 2. **Documentation Website** (Next.js + Vercel) - COMPLETE
    - `/` - Home/overview
@@ -128,6 +133,7 @@ claude-genui-guide/
 - [x] Update technical-spec page with MCP architecture
 - [x] Update README.md with Version 1.1.0 features
 - [x] Rebuild MCP server (npm run build)
+- [x] Push to GitHub (commit 9093179)
 
 ---
 
